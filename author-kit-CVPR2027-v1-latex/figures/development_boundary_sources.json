@@ -1,0 +1,34 @@
+{
+  "stage": "development_only",
+  "selection": "Boundary case, not test ranking",
+  "reference_id": "kr_dev_00",
+  "prompt": "A panda eating bamboo",
+  "seed": 64,
+  "images": [
+    {
+      "label": "Reference\nclay sculpture",
+      "path": "/data534/fengwj/TSD/data/krea/references512/kr_dev_00.png",
+      "sha256": "8b3e996ce45a77048d4e5695437823e53574e30c8969742a06233bb4a2d37860"
+    },
+    {
+      "label": "Native ref. CFG\nshared prompt",
+      "path": "/data534/fengwj/TSD/results/p0_pilot_v3/kr_dev_00_kp0_seed64_reference_cfg/diagnostic_reference_cfg_ca_only_stylekr_dev_00_kp0_seed64.png",
+      "sha256": "bfe0d241890816ef979e5a76bfe739673d6e2c47084905d06fe7c10fbaaeeee0"
+    },
+    {
+      "label": "TSD\n25 nominal steps",
+      "path": "/data534/fengwj/TSD/results/p0_pilot_v3/kr_dev_00_kp0_seed64_ca25/diagnostic_ca25_ca_only_stylekr_dev_00_kp0_seed64.png",
+      "sha256": "c470f148d99db93c0cbd55f4da54284383a9c2114c42c00bad1628ae3e333ede"
+    },
+    {
+      "label": "TSD\n8 nominal steps",
+      "path": "/data534/fengwj/TSD/results/p0_pilot_v3/kr_dev_00_kp0_seed64_ca8/diagnostic_ca8_ca_only_stylekr_dev_00_kp0_seed64.png",
+      "sha256": "c0409041ef675355ed5f7e8059c23327353d1b560400f3fadd87ea1dac1cdeab"
+    },
+    {
+      "label": "Attention Distill.\nSD1.5 backbone",
+      "path": "/data534/fengwj/TSD/results/ad_pilot/kr_dev_00_9d99b476f2_seed64_T50_K2/output.png",
+      "sha256": "4b9fdb7ac4854bea9aeff582ed471ac2d8cf2fa8475fed86f5926f6122f34487"
+    }
+  ]
+}

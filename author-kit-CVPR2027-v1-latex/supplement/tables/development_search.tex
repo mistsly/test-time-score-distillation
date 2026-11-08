@@ -1,0 +1,31 @@
+\begin{tabular}{lrrr}
+\toprule
+Configuration & CSD $\uparrow$ & CLIP-T $\uparrow$ & Layout \\
+\midrule
+AD (SD1.5) & 0.6789 & 0.2894 & 0.3963 \\
+USO (FLUX.1, FP8) & 0.3378 & 0.3244 & 0.3587 \\
+TSD25, four nodes & 0.0386 & 0.3190 & 0.3398 \\
+TSD25, K1 & 0.3726 & 0.3109 & 0.3665 \\
+TSD, 25/K2 & 0.5555 & 0.3110 & 0.4350 \\
+TSD25, K5, $\ell=.005$ & 0.6288 & 0.2986 & 0.4941 \\
+TSD8, four nodes & 0.0315 & 0.3168 & 0.3465 \\
+TSD25, K5 & 0.7302 & 0.2796 & 0.5955 \\
+TSD, 8/K5 & 0.3891 & 0.3110 & 0.3754 \\
+TSD25, four nodes, $\ell=.005$ & 0.0341 & 0.3198 & 0.3394 \\
+TSD25, four nodes, $\ell=.02$ & 0.0468 & 0.3191 & 0.3404 \\
+Native global & 0.0633 & 0.3100 & 0.3411 \\
+Native semantic & 0.0809 & 0.3070 & 0.3516 \\
+Ref. CFG144, $\gamma=1$ & 0.1401 & 0.3133 & 0.3524 \\
+Ref. CFG72, $\gamma=3$ & 0.2545 & 0.3185 & 0.3810 \\
+Reference CFG, 72/$\gamma=5$ & 0.2631 & 0.3114 & 0.4137 \\
+Ref. CFG12+nodes, $\gamma=.5$ & 0.0635 & 0.3145 & 0.3386 \\
+Ref. CFG12+nodes, $\gamma=1.5$ & 0.1865 & 0.3163 & 0.3616 \\
+Ref. CFG25+nodes, $\gamma=.5$ & 0.0682 & 0.3163 & 0.3421 \\
+Ref. CFG25+nodes, $\gamma=1.5$ & 0.1862 & 0.3159 & 0.3587 \\
+Ref. CFG25+nodes, $\gamma=2$ & 0.2227 & 0.3170 & 0.3650 \\
+Ref. CFG25+nodes, $\gamma=3$ & 0.2517 & 0.3185 & 0.3799 \\
+Ref. CFG25+nodes, $\gamma=5$ & 0.2470 & 0.3147 & 0.4092 \\
+Ref. CFG25+nodes, $\gamma=1$ & 0.1247 & 0.3150 & 0.3522 \\
+RMS-SGD, four nodes & 0.0411 & 0.3186 & 0.3397 \\
+\bottomrule
+\end{tabular}

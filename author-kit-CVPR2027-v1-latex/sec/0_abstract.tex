@@ -1,0 +1,19 @@
+\begin{abstract}
+A style reference carries not only artistic appearance but also objects and
+composition, making it difficult to transfer its medium to a new subject.
+We cast training-free style transfer as test-time score distillation (TSD)
+on a frozen rectified-flow text-to-image transformer. At inference, we
+optimize only the current latent using the model's image-conditioned
+CFG-augmentation contrast, computed from velocity predictions with and
+without a style reference at the identical latent state and noise level.
+The corresponding score direction is RMS-normalized to construct a
+detached clean-state target, and latent updates are interleaved with
+frozen reverse sampling, which provides reverse-process regularization. TSD trains no weights and
+requires no attention-feature modification, additional adapter, fake-score
+network, or generator. Adjusting the reverse sampling and latent
+intervention schedules supports both semantic style editing with greater
+composition preservation and global style transfer with freer composition.
+Experiments across artistic media and target prompts show stronger
+reference style matching than the backbone's native image-and-text editing
+and direct reference guidance, while retaining recognizable target subjects.
+\end{abstract}
