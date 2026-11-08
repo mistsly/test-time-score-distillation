@@ -1,0 +1,15 @@
+{
+  "stage": "development_coverage_only",
+  "metrics_sha256": "1346dbf69b64dc95ce287804c53bc87480453fc47f114f011a5f24b22c01708d",
+  "rows": 336,
+  "outputs_per_method": 48,
+  "methods": [
+    "AD_SD15",
+    "InstantStyle_SDXL",
+    "StyleShot_SD15",
+    "USO_FP8",
+    "ca25_dense_k2",
+    "ca_dense8_k5",
+    "ref72_g5"
+  ]
+}

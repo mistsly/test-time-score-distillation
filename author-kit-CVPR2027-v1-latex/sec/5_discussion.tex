@@ -1,0 +1,30 @@
+\section{Discussion}
+\label{sec:limitations}
+TSD makes the frozen model's response to a reference an explicit objective
+for the image latent. The reference signal and reverse sampling share one
+model, and the intervention schedule provides different balances of style
+strength, subject alignment, and layout retention. These properties make
+TSD applicable to both composition-preserving semantic editing and freer
+style-conditioned generation through a common operator.
+
+The scope of the transfer follows the model's native reference
+representation. A reference can convey object identity and layout as well
+as material and texture, so the desired operating point depends on the
+creative task. The current collection contains synthetic references, and
+extending the evaluation to photographed materials and human-made artworks
+would broaden the assessed range. Repeated teacher evaluations also make
+inference cost an important design consideration. Prediction reuse and
+adaptive intervention schedules are promising directions for reducing it.
+
+\section{Conclusion}
+\label{sec:conclusion}
+Training-free style transfer on a frozen transformer serves Semantic Style
+Editing and Global Style Transfer through a common style-locality framework.
+TSD applies the native reference-conditioning score direction through
+RMS-normalized detached targets for latent optimization. Interleaving those
+updates with the frozen reverse trajectory provides reverse-process
+regularization, without training a generator or auxiliary fake-score
+network. The initial 40-style study and expanded comparisons show stronger
+reference matching than native editing and direct reference guidance.
+Sampling and intervention settings provide different balances of medium,
+subject, and composition, with no mask or segmentation.

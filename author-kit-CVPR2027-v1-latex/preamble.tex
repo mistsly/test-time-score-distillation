@@ -1,0 +1,21 @@
+% TeX Live 2019 compatibility: evaluate arithmetic dimensions in the uploaded
+% template's shipout coordinates; otherwise literal "-12pt" appears in header.
+% No change to the intended dimensions or to cvpr.sty.
+\makeatletter
+\renewcommand{\LenToUnit}[1]{\strip@pt\dimexpr#1\relax}
+\makeatother
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\newcommand{\sg}{\operatorname{sg}}
+\newcommand{\rms}{\operatorname{RMS}}
+\newcommand{\normr}{\operatorname{RMSNorm}}
+\graphicspath{{figures/}}
+
+% Visible result slots in this working draft. Fill each slot before submission.
+\newcommand{\pendingcell}{\textit{TBD}}
+\newcommand{\pendingexperiment}[2]{%
+  \par\smallskip\noindent
+  \fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+    \textbf{#1 (pending).} #2}}%
+  \par\smallskip
+}

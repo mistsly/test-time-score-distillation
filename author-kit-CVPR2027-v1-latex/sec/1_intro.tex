@@ -1,0 +1,60 @@
+\section{Introduction}
+\label{sec:intro}
+
+Style transfer on a frozen generator is treated as one task, but
+users want two. Given a content prompt and a reference image, a frozen
+text-to-image transformer can render the prompt's subject ``in the style of''
+the reference. In practice two very different outcomes are desirable and are
+conflated under one name. In one, an artist wants the reference's
+\emph{scene} preserved, including its composition and arrangement, with only the
+subject re-imagined in the reference's medium. This is \emph{Semantic Style
+Editing}. In the other, the artist wants only the reference's \emph{look},
+including its medium, texture, and palette, carried onto a freshly composed
+scene, with the reference's specific layout thrown away. This is
+\emph{Global Style Transfer}. The desired amount of reference-layout retention therefore depends on
+the creative task.
+
+These two outcomes motivate a common \emph{style-locality} axis.
+Style locality describes how much reference layout is retained. Greater
+retention supports semantic editing, while freer composition supports global
+transfer. We assess this axis separately from reference-medium fidelity and
+target-subject alignment, so replacing the reference subject remains an
+explicit requirement in either task.
+
+We drive this axis with one frozen-model operator. Distribution-matching
+distillation separates CFG augmentation, which strengthens conditioning,
+from distribution matching with a learned fake-score estimate
+\citep{yin2024dmd,liu2025decoupled}. Our setting differs: we optimize a
+single inference-time latent while retaining the frozen reverse process.
+The native reference-conditioning contrast supplies the style direction,
+and ordinary reverse steps continue the model's denoising trajectory
+between latent interventions. We call this procedure \textbf{Test-Time
+Score Distillation (TSD)} and its alternation \emph{reverse-process
+regularization}.
+
+TSD evaluates reference-conditioned and reference-free velocities at the
+same latent state, noise level, and target text. We convert their difference
+to a score direction, RMS-normalize it, and construct a detached clean-state
+target for latent optimization. The target is rebuilt after each inner
+update. All network weights remain frozen, with no learned style adapter,
+auxiliary fake-score network, or spatial mask. Sampling resolution and
+intervention settings jointly determine the style-locality operating point.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+\item \textbf{A common task formulation.} Semantic Style Editing and Global
+Style Transfer are two goals on a style-locality axis. We serve both with
+one operator and study their sampling and latent-intervention settings.
+\item \textbf{Test-time score distillation with reverse-process
+regularization.} We turn the frozen model's same-state reference contrast
+into an RMS-normalized pseudo-target for latent optimization, interleaved
+with its native reverse trajectory.
+\item \textbf{A separable-axis evaluation protocol.} We evaluate style
+fidelity with CSD, subject fidelity with CLIP-T, and composition transfer
+with reference-layout similarity, interpreting all three together.
+\item \textbf{Native-editor and dedicated-method comparisons.} We retain
+the initial 40-reference study and extend it with multiple prompts, a strong
+same-backbone reference-CFG control, and dedicated transfer methods. The joint readouts expose how guidance and intervention settings affect
+style, subject, and composition.
+\end{enumerate}
+

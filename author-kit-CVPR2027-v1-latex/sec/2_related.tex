@@ -1,0 +1,45 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Distillation and test-time score guidance.}
+Distribution-matching distillation matches a student generator to a teacher
+through teacher and fake-score estimates, with later variants improving the
+objective and separating distribution matching from CFG augmentation
+\citep{yin2024dmd,yin2024dmd2,liu2025decoupled}. This decomposition connects
+to diffusion and score models' noise-conditional vector fields
+\citep{ho2020ddpm,song2021sde}. Conditional contrasts appear in classifier
+guidance, classifier-free guidance, score distillation, and text-guided editing
+\citep{dhariwal2021diffusion,ho2022cfg,poole2023dreamfusion,hertz2023dds,
+nam2024cds,chinchuthakun2025lusd}.
+Other test-time methods steer frozen samplers with external losses, perturbed
+attention, or annealed conditions
+\citep{bansal2023universal,ahn2024pag,hong2024seg,sadat2024cads}. TSD applies the reference-conditioned augmentation direction to one
+test-time sample. It optimizes the current latent and interleaves these
+updates with the frozen reverse trajectory.
+
+\paragraph{Reference-conditioned style transfer and frozen-model editing.}
+Classical style transfer matches feature statistics
+\citep{gatys2016style,huang2017adain}. Diffusion methods extend this idea
+through exemplar conditioning, learned style interfaces, attention sharing,
+or sampling-time transport
+\citep{yang2023paint,sohn2023styledrop,ye2023ipadapter,hertz2024stylealigned,
+chung2024styleinjection,deng2024zstar,wang2024instantstyle,xu2025stylessp,
+he2025semantix,rout2025rbmodulation}. Related editing systems control cross-attention or reuse
+frozen diffusion features \citep{hertz2023prompt,tumanyan2023plugplay}, while
+rectified-flow methods develop inversion and direct trajectory editing
+\citep{rout2025rfinversion,kulikov2025flowedit}. TSD belongs to the
+optimization-based, training-free-of-weights family, but its signal is the
+native same-state reference-conditioning contrast rather than replaced
+attention features, a trained adapter, or an explicit mask. We evaluate medium, palette, and texture transfer together with reference-layout
+retention, without requiring exact correspondence of individual motifs.
+
+\paragraph{Dedicated transfer systems and latent optimization.}
+Attention Distillation is a close optimization-based comparison: it updates
+the sampling latent using an attention-derived reference loss
+\citep{zhou2025attentiondistillation}. StyleShot uses a style-aware image
+encoder \citep{gao2024styleshot}, CSGO learns content--style composition
+\citep{xing2024csgo}, and USO supports style and subject customization
+\citep{wu2025uso}. TSD uses the native reference-conditioned velocity
+contrast as its supervision. Our comparisons distinguish reference-plus-text
+generation from methods that additionally require a content image.
+
